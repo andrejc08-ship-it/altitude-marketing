@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, ArrowRight, CheckCircle2, TrendingUp, Users, Award, Mail, Phone, MapPin, Globe } from 'lucide-react';
+import { Menu, X, ArrowRight, CheckCircle2, TrendingUp, Users, Award, Mail, Phone, MapPin, Globe, Wrench, Heart, Utensils, Leaf, Scale, PawPrint, Car, ShoppingBag } from 'lucide-react';
 import logoA from './assets/logo.svg';
 
 function PolicyModal({ title, onClose, children }: { title: string; onClose: () => void; children: React.ReactNode }) {
@@ -33,7 +33,7 @@ export default function App() {
     {
       icon: <Globe className="w-8 h-8" />,
       title: "Website Management",
-      description: "Updates, security, maintenance, and ongoing improvements—handled. Your site stays current, secure, and working for you."
+      description: "Updates, security, maintenance, and ongoing improvements. Your site stays current, secure, and working for you."
     },
     {
       icon: <Award className="w-8 h-8" />,
@@ -43,7 +43,7 @@ export default function App() {
     {
       icon: <Users className="w-8 h-8" />,
       title: "Content & Social Media",
-      description: "Regular posts, professional updates, and customer engagement—without you having to think about it."
+      description: "Regular posts, professional updates, and customer engagement. You never have to think about it."
     },
     {
       icon: <TrendingUp className="w-8 h-8" />,
@@ -52,17 +52,55 @@ export default function App() {
     }
   ];
 
-  const testimonials = [
+  const businessTypes = [
     {
-      quote: "Finally, someone who actually does the work instead of just telling us what to do. Our website stays updated and our Google presence has never been stronger.",
-      author: "Mike Thompson",
-      company: "Thompson Plumbing & HVAC"
+      icon: <Wrench className="w-6 h-6" />,
+      title: "Home Service Contractors",
+      examples: "Plumbers, HVAC, electricians, roofers",
+      insight: "When something breaks, people search fast. Rank first and the phone rings before your competitor knows there's a lead."
     },
     {
-      quote: "I was juggling two freelancers and still falling behind. Altitude handles everything—website, SEO, social—and I actually know what's happening each month.",
-      author: "Dr. Jennifer Park",
-      company: "Chester County Family Dentistry"
-    }
+      icon: <Heart className="w-6 h-6" />,
+      title: "Family Dental and Medical",
+      examples: "Dentists, orthodontists, chiropractors, pediatricians",
+      insight: "Patients look you up before they ever call. Your website and reviews are the first impression, not the front desk."
+    },
+    {
+      icon: <Utensils className="w-6 h-6" />,
+      title: "Restaurants and Eateries",
+      examples: "Diners, pizza shops, delis, bakeries, cafes",
+      insight: "Updated hours, fresh photos, and answered reviews on Google turn searchers into walk-ins every single day."
+    },
+    {
+      icon: <Leaf className="w-6 h-6" />,
+      title: "Landscaping and Outdoor Services",
+      examples: "Lawn care, landscaping, pool companies, pest control",
+      insight: "Spring jobs book in February for homeowners who planned ahead. Year-round visibility fills your calendar before the season starts."
+    },
+    {
+      icon: <Scale className="w-6 h-6" />,
+      title: "Law and Accounting Firms",
+      examples: "Solo attorneys, small firms, CPAs, bookkeepers",
+      insight: "Clients research before they commit. A clean, current website closes the gap between finding you and calling you."
+    },
+    {
+      icon: <PawPrint className="w-6 h-6" />,
+      title: "Pet Care and Boarding",
+      examples: "Groomers, veterinarians, kennels, trainers",
+      insight: "Pet owners are loyal and they talk. One happy customer on social becomes five referrals in the same neighborhood."
+    },
+    {
+      icon: <Car className="w-6 h-6" />,
+      title: "Auto Repair and Detailing",
+      examples: "Mechanics, body shops, tire shops, detailers",
+      insight: "Local reputation is everything in this business. Strong reviews and a sharp Google profile keep you the first call."
+    },
+    {
+      icon: <ShoppingBag className="w-6 h-6" />,
+      title: "Boutique Retail and Specialty Shops",
+      examples: "Salons, gift shops, fitness studios, florists",
+      insight: "Locals shop local when they know you exist. Consistent posts and a sharp Google profile keep you top of mind."
+    },
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -90,7 +128,7 @@ export default function App() {
             <div className="hidden md:flex items-center gap-8">
               <a href="#services" className="text-gray-700 hover:text-orange-500 transition-colors">Services</a>
               <a href="#about" className="text-gray-700 hover:text-orange-500 transition-colors">About</a>
-              <a href="#results" className="text-gray-700 hover:text-orange-500 transition-colors">Results</a>
+              <a href="#who-we-serve" className="text-gray-700 hover:text-orange-500 transition-colors">Who We Serve</a>
               <a href="#contact" className="bg-gradient-to-r from-orange-400 to-orange-600 text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all">
                 Get Started
               </a>
@@ -113,7 +151,7 @@ export default function App() {
             <div className="px-4 py-4 space-y-3">
               <a href="#services" className="block py-2 text-gray-700" onClick={() => setMobileMenuOpen(false)}>Services</a>
               <a href="#about" className="block py-2 text-gray-700" onClick={() => setMobileMenuOpen(false)}>About</a>
-              <a href="#results" className="block py-2 text-gray-700" onClick={() => setMobileMenuOpen(false)}>Results</a>
+              <a href="#who-we-serve" className="block py-2 text-gray-700" onClick={() => setMobileMenuOpen(false)}>Who We Serve</a>
               <a href="#contact" className="block bg-gradient-to-r from-orange-400 to-orange-600 text-white px-6 py-3 rounded-lg text-center" onClick={() => setMobileMenuOpen(false)}>
                 Get Started
               </a>
@@ -132,10 +170,10 @@ export default function App() {
                 <span className="text-sm">West Chester • Exton • Malvern • Wayne • Main Line</span>
               </div>
               <h1 className="text-5xl md:text-6xl mb-6 text-gray-900 leading-tight">
-                Website, Google Visibility, and Ongoing Marketing — <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">Handled.</span>
+                Your Website, Google Presence, and Marketing: <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">Handled.</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                For Chester County and Main Line service businesses that need execution, not another strategy deck. We handle the ongoing work—website upkeep, local SEO, Google Business Profile, and monthly marketing—so you can stop chasing vendors and get back to running your business.
+                For Chester County and Main Line service businesses that need execution, not another strategy deck. We handle the ongoing work: website upkeep, local SEO, Google Business Profile, and monthly marketing. Stop chasing vendors and get back to running your business.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href="#contact" className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-400 to-orange-600 text-white px-8 py-4 rounded-lg hover:shadow-xl transition-all">
@@ -167,7 +205,7 @@ export default function App() {
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0" />
-                    <span className="text-gray-700">Website updates & security—handled</span>
+                    <span className="text-gray-700">Website updates and security, handled</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0" />
@@ -208,7 +246,7 @@ export default function App() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl mb-4 text-gray-900">What We Handle for You</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              The ongoing marketing work you need done—without hiring in-house or juggling freelancers
+              The ongoing marketing work you need done, without hiring in-house or juggling freelancers
             </p>
           </div>
 
@@ -229,30 +267,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Who It's For Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl mb-4 text-gray-900">Built for Local Service Businesses</h2>
-            <p className="text-xl text-gray-600">Owner-led businesses that need execution, not more advice</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-xl border border-gray-200">
-              <h3 className="text-lg mb-2 text-gray-900">Home Services</h3>
-              <p className="text-gray-600 text-sm">HVAC, plumbing, electrical, landscaping, contractors</p>
-            </div>
-            <div className="bg-white p-6 rounded-xl border border-gray-200">
-              <h3 className="text-lg mb-2 text-gray-900">Healthcare Practices</h3>
-              <p className="text-gray-600 text-sm">Dentists, orthodontists, med spas, specialty practices</p>
-            </div>
-            <div className="bg-white p-6 rounded-xl border border-gray-200">
-              <h3 className="text-lg mb-2 text-gray-900">Professional Services</h3>
-              <p className="text-gray-600 text-sm">Law firms, accounting firms, insurance agencies</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* About/Why Section */}
       <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
         <div className="max-w-7xl mx-auto">
@@ -260,7 +274,7 @@ export default function App() {
             <div>
               <h2 className="text-4xl md:text-5xl mb-6">Why Local Service Businesses Choose Altitude</h2>
               <p className="text-xl text-gray-300 mb-8">
-                We're not consultants who drop a strategy deck and disappear. We're your local marketing operator—handling the day-to-day execution so you can focus on serving customers, not managing vendors.
+                We're not consultants who drop a strategy deck and disappear. We're your local marketing operator, handling the day-to-day execution so you can focus on serving customers, not managing vendors.
               </p>
               <div className="space-y-6">
                 <div className="flex gap-4">
@@ -269,7 +283,7 @@ export default function App() {
                   </div>
                   <div>
                     <h3 className="text-xl mb-2">We Do the Weekly Work</h3>
-                    <p className="text-gray-400">Not just advice—actual execution. Website updates, content posts, SEO improvements, all handled.</p>
+                    <p className="text-gray-400">Not just advice. Actual execution. Website updates, content posts, SEO improvements, all handled.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -297,38 +311,42 @@ export default function App() {
                 <blockquote className="text-2xl mb-6 leading-relaxed">
                   "The difference between average marketing and exceptional marketing is understanding your local community."
                 </blockquote>
-                <p className="text-orange-400">— Altitude Marketing Group, LLC</p>
+                <p className="text-orange-400 text-sm tracking-wide uppercase">Altitude Marketing Group, LLC</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Results/Testimonials Section */}
-      <section id="results" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      {/* Who We Serve Section */}
+      <section id="who-we-serve" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl mb-4 text-gray-900">Businesses We Work With</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Local service businesses that need reliable marketing execution
+            <div className="inline-block bg-orange-100 text-orange-700 text-sm font-medium px-4 py-1.5 rounded-full mb-4">Who We Serve</div>
+            <h2 className="text-4xl md:text-5xl mb-4 text-gray-900">Built for Chester County's Own</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              From the diner on Gay Street to the plumber on Boot Road. If your name is on the door, this is built for you.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-                <div className="text-5xl text-orange-400 mb-4">"</div>
-                <p className="text-lg text-gray-700 mb-6 leading-relaxed">{testimonial.quote}</p>
-                <div>
-                  <div className="text-gray-900">{testimonial.author}</div>
-                  <div className="text-gray-500 text-sm">{testimonial.company}</div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+            {businessTypes.map((type, index) => (
+              <div
+                key={index}
+                className="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-400 hover:shadow-lg transition-all group"
+              >
+                <div className="w-11 h-11 bg-orange-50 group-hover:bg-orange-100 rounded-lg flex items-center justify-center mb-4 text-orange-500 transition-colors">
+                  {type.icon}
                 </div>
+                <h3 className="text-base font-semibold text-gray-900 mb-1">{type.title}</h3>
+                <p className="text-xs text-gray-400 mb-3">{type.examples}</p>
+                <p className="text-sm text-gray-600 leading-relaxed">{type.insight}</p>
               </div>
             ))}
           </div>
 
           <div className="bg-gradient-to-r from-orange-400 to-orange-600 rounded-2xl p-8 md:p-12 text-white text-center">
-            <h3 className="text-3xl md:text-4xl mb-4">Stop Chasing Vendors. Start Getting Results.</h3>
+            <h3 className="text-3xl md:text-4xl mb-4">Your Competitor Is Already Showing Up Online. Are You?</h3>
             <p className="text-xl mb-8 opacity-90">One local partner for all your marketing execution needs</p>
             <a href="#contact" className="inline-flex items-center gap-2 bg-white text-orange-600 px-8 py-4 rounded-lg hover:shadow-xl transition-all">
               Book Your Fit Call
@@ -345,7 +363,7 @@ export default function App() {
             <div>
               <h2 className="text-4xl md:text-5xl mb-6 text-gray-900">Ready to Get Your Marketing Handled?</h2>
               <p className="text-xl text-gray-600 mb-8">
-                Let's talk about your business, what's not working, and whether we're the right fit. No pressure, no sales pitch—just a straight conversation about execution.
+                Let's talk about your business, what's not working, and whether we're the right fit. No pressure, no sales pitch. Just a straight conversation about execution.
               </p>
 
               <div className="space-y-6 mb-8">
@@ -459,7 +477,7 @@ export default function App() {
                 </div>
               </div>
               <p className="text-gray-400 mb-4">
-                Altitude Marketing Group, LLC is an Exton-based marketing operator for local service businesses. We handle the ongoing work—website, local SEO, Google Business Profile, content, and monthly execution—so you can focus on serving customers.
+                Altitude Marketing Group, LLC is an Exton-based marketing operator for local service businesses. We handle the ongoing work: website, local SEO, Google Business Profile, content, and monthly execution. You focus on serving customers.
               </p>
             </div>
             <div>
@@ -467,7 +485,7 @@ export default function App() {
               <ul className="space-y-2 text-gray-400">
                 <li><a href="#services" className="hover:text-orange-400 transition-colors">Services</a></li>
                 <li><a href="#about" className="hover:text-orange-400 transition-colors">About</a></li>
-                <li><a href="#results" className="hover:text-orange-400 transition-colors">Results</a></li>
+                <li><a href="#who-we-serve" className="hover:text-orange-400 transition-colors">Who We Serve</a></li>
                 <li><a href="#contact" className="hover:text-orange-400 transition-colors">Contact</a></li>
               </ul>
             </div>
@@ -484,7 +502,7 @@ export default function App() {
             </div>
           </div>
           <div className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
-            <p>&copy; 2026 Altitude Marketing Group, LLC. All rights reserved. | Local Marketing Execution for Chester County &amp; Main Line Service Businesses</p>
+            <p>&copy; 2026 Altitude Marketing Group, LLC. All rights reserved. Local Marketing Execution for Chester County and Main Line Service Businesses.</p>
             <div className="flex gap-6">
               <button onClick={() => setPrivacyOpen(true)} className="hover:text-orange-400 transition-colors">Privacy Policy</button>
               <button onClick={() => setTermsOpen(true)} className="hover:text-orange-400 transition-colors">Terms of Service</button>
