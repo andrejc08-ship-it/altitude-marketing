@@ -2,9 +2,32 @@ import { useState } from 'react';
 import { Menu, X, ArrowRight, CheckCircle2, TrendingUp, Users, Award, Mail, Phone, MapPin, Globe } from 'lucide-react';
 import logoA from './assets/logo.svg';
 
+function PolicyModal({ title, onClose, children }: { title: string; onClose: () => void; children: React.ReactNode }) {
+  return (
+    <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <div
+        className="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto"
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="flex justify-between items-center p-8 pb-4 border-b border-gray-100 sticky top-0 bg-white rounded-t-2xl">
+          <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+          <button onClick={onClose} aria-label="Close" className="p-1 rounded-lg hover:bg-gray-100 transition-colors">
+            <X className="w-6 h-6 text-gray-600" />
+          </button>
+        </div>
+        <div className="p-8 pt-6 prose prose-sm max-w-none text-gray-700 space-y-4">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
+  const [privacyOpen, setPrivacyOpen] = useState(false);
+  const [termsOpen, setTermsOpen] = useState(false);
 
   const services = [
     {
@@ -50,17 +73,16 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* SEO-friendly meta tags would be added via helmet or framework */}
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center gap-3">
-              <img src={logoA} alt="Altitude Marketing Group Logo" className="w-10 h-10 md:w-12 md:h-12" />
+              <img src={logoA} alt="Altitude Marketing Group LLC Logo" className="w-10 h-10 md:w-12 md:h-12" />
               <div className="flex flex-col">
                 <span className="text-xl md:text-2xl font-bold text-gray-900">Altitude</span>
-                <span className="text-xs md:text-sm text-gray-600 -mt-1">Marketing Group</span>
+                <span className="text-xs md:text-sm text-gray-600 -mt-1">Marketing Group, LLC</span>
               </div>
             </div>
 
@@ -275,7 +297,7 @@ export default function App() {
                 <blockquote className="text-2xl mb-6 leading-relaxed">
                   "The difference between average marketing and exceptional marketing is understanding your local community."
                 </blockquote>
-                <p className="text-orange-400">— Altitude Marketing Philosophy</p>
+                <p className="text-orange-400">— Altitude Marketing Group, LLC</p>
               </div>
             </div>
           </div>
@@ -333,7 +355,7 @@ export default function App() {
                   </div>
                   <div>
                     <div className="text-sm text-gray-500 mb-1">Call Us</div>
-                    <a href="tel:+16105551234" className="text-lg text-gray-900 hover:text-orange-600">(610) 555-1234</a>
+                    <a href="tel:+16314320281" className="text-lg text-gray-900 hover:text-orange-600">(631) 432-0281</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -406,6 +428,12 @@ export default function App() {
                     placeholder="Tell us about your marketing goals..."
                   ></textarea>
                 </div>
+                <p className="text-xs text-gray-500">
+                  By submitting this form you agree to our{' '}
+                  <button type="button" onClick={() => setPrivacyOpen(true)} className="underline hover:text-orange-600">Privacy Policy</button>
+                  {' '}and{' '}
+                  <button type="button" onClick={() => setTermsOpen(true)} className="underline hover:text-orange-600">Terms of Service</button>.
+                </p>
                 <button
                   type="submit"
                   className="w-full bg-gradient-to-r from-orange-400 to-orange-600 text-white px-8 py-4 rounded-lg hover:shadow-xl transition-all"
@@ -424,14 +452,14 @@ export default function App() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div className="md:col-span-2">
               <div className="flex items-center gap-3 mb-4">
-                <img src={logoA} alt="Altitude Marketing Group Logo" className="w-10 h-10" />
+                <img src={logoA} alt="Altitude Marketing Group LLC Logo" className="w-10 h-10" />
                 <div className="flex flex-col">
                   <span className="text-xl font-bold text-white">Altitude</span>
-                  <span className="text-sm text-gray-400 -mt-1">Marketing Group</span>
+                  <span className="text-sm text-gray-400 -mt-1">Marketing Group, LLC</span>
                 </div>
               </div>
               <p className="text-gray-400 mb-4">
-                Altitude Marketing Group is a West Chester-based marketing operator for local service businesses. We handle the ongoing work—website, local SEO, Google Business Profile, content, and monthly execution—so you can focus on serving customers.
+                Altitude Marketing Group, LLC is a West Chester-based marketing operator for local service businesses. We handle the ongoing work—website, local SEO, Google Business Profile, content, and monthly execution—so you can focus on serving customers.
               </p>
             </div>
             <div>
@@ -455,11 +483,108 @@ export default function App() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
-            <p>&copy; 2026 Altitude Marketing Group. All rights reserved. | Local Marketing Execution for Chester County & Main Line Service Businesses</p>
+          <div className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
+            <p>&copy; 2026 Altitude Marketing Group, LLC. All rights reserved. | Local Marketing Execution for Chester County &amp; Main Line Service Businesses</p>
+            <div className="flex gap-6">
+              <button onClick={() => setPrivacyOpen(true)} className="hover:text-orange-400 transition-colors">Privacy Policy</button>
+              <button onClick={() => setTermsOpen(true)} className="hover:text-orange-400 transition-colors">Terms of Service</button>
+            </div>
           </div>
         </div>
       </footer>
+
+      {/* Privacy Policy Modal */}
+      {privacyOpen && (
+        <PolicyModal title="Privacy Policy" onClose={() => setPrivacyOpen(false)}>
+          <p className="text-sm text-gray-500">Effective Date: June 1, 2026</p>
+
+          <p>Altitude Marketing Group, LLC ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or submit an inquiry.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">1. Information We Collect</h3>
+          <p>We collect personal information that you voluntarily provide through our contact form, including:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Full name</li>
+            <li>Email address</li>
+            <li>Company name</li>
+            <li>Message content</li>
+          </ul>
+          <p>We may also automatically collect non-personal data such as browser type, device type, and pages visited through standard web analytics tools.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">2. How We Use Your Information</h3>
+          <p>We use the information you provide to:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Respond to your inquiry within 24 business hours</li>
+            <li>Determine whether our services are a good fit for your business</li>
+            <li>Send relevant follow-up communications related to your inquiry</li>
+            <li>Improve our website and services</li>
+          </ul>
+          <p>We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">3. Data Retention</h3>
+          <p>We retain your contact information only as long as necessary to fulfill the purpose for which it was collected or as required by law. If you wish to have your information removed from our records, contact us at hello@altitudemarketinggroup.com.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">4. Cookies</h3>
+          <p>Our website may use cookies and similar technologies for basic site functionality and analytics. You may disable cookies in your browser settings; however, some features of the site may not function properly.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">5. Third-Party Services</h3>
+          <p>We may use third-party services (such as Google Analytics) that collect, monitor, and analyze web traffic. These services have their own privacy policies governing their use of your information.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">6. Your Rights</h3>
+          <p>You have the right to request access to, correction of, or deletion of your personal information. Pennsylvania residents and California residents (under CCPA) may have additional rights. To exercise any of these rights, contact us at hello@altitudemarketinggroup.com.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">7. Security</h3>
+          <p>We implement reasonable administrative and technical safeguards to protect your information. However, no method of transmission over the internet is 100% secure.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">8. Changes to This Policy</h3>
+          <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">9. Contact Us</h3>
+          <p>Altitude Marketing Group, LLC<br />West Chester, PA 19380<br />hello@altitudemarketinggroup.com</p>
+        </PolicyModal>
+      )}
+
+      {/* Terms of Service Modal */}
+      {termsOpen && (
+        <PolicyModal title="Terms of Service" onClose={() => setTermsOpen(false)}>
+          <p className="text-sm text-gray-500">Effective Date: June 1, 2026</p>
+
+          <p>These Terms of Service ("Terms") govern your use of the Altitude Marketing Group, LLC website and any services we provide. By accessing our website or engaging our services, you agree to these Terms.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">1. Services</h3>
+          <p>Altitude Marketing Group, LLC provides ongoing marketing execution services for local service businesses, including website management, local SEO, Google Business Profile management, content creation, social media management, and monthly marketing execution. Specific services, deliverables, timelines, and fees are outlined in individual client agreements.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">2. Client Responsibilities</h3>
+          <p>Clients agree to provide accurate business information, timely feedback, and necessary access to systems (website, social accounts, Google Business Profile) required to perform the agreed services. Delays caused by client inaction may affect timelines and deliverables.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">3. Payment</h3>
+          <p>Payment terms, fees, and billing cycles are specified in each client's service agreement. Invoices are due upon receipt unless otherwise agreed in writing. We reserve the right to pause services for accounts with outstanding balances exceeding 30 days.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">4. Intellectual Property</h3>
+          <p>Upon full payment, clients retain ownership of all content and creative assets produced specifically for them. Altitude Marketing Group, LLC retains ownership of its proprietary processes, tools, and templates. We reserve the right to reference completed work in our portfolio unless the client requests otherwise in writing.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">5. Confidentiality</h3>
+          <p>We treat all client business information as confidential and will not disclose it to third parties without written consent, except as required by law.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">6. Results Disclaimer</h3>
+          <p>While we work diligently to improve your digital presence and marketing performance, we do not guarantee specific results such as search engine rankings, website traffic levels, or revenue outcomes. Marketing results depend on many factors outside our control.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">7. Limitation of Liability</h3>
+          <p>To the maximum extent permitted by law, Altitude Marketing Group, LLC's total liability for any claim arising from or related to our services shall not exceed the total fees paid by the client in the three (3) months preceding the claim. We are not liable for indirect, incidental, or consequential damages.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">8. Termination</h3>
+          <p>Either party may terminate a service agreement with 30 days' written notice unless otherwise specified in the client agreement. Fees for work completed through the termination date remain due.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">9. Governing Law</h3>
+          <p>These Terms are governed by the laws of the Commonwealth of Pennsylvania. Any disputes shall be resolved in the courts of Chester County, Pennsylvania.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">10. Changes to These Terms</h3>
+          <p>We may update these Terms from time to time. Continued use of our website or services after changes constitutes acceptance of the revised Terms.</p>
+
+          <h3 className="font-semibold text-gray-900 text-base mt-6">11. Contact Us</h3>
+          <p>Altitude Marketing Group, LLC<br />West Chester, PA 19380<br />hello@altitudemarketinggroup.com</p>
+        </PolicyModal>
+      )}
+
     </div>
   );
 }
