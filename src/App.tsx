@@ -278,7 +278,7 @@ export default function App() {
                   </div>
                   <div>
                     <h3 className="text-xl mb-2">Local & Responsive</h3>
-                    <p className="text-gray-400">Based in West Chester, we know your market. Same-day acknowledgment on every request.</p>
+                    <p className="text-gray-400">Based in Exton, we know your market. Same-day acknowledgment on every request.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -364,7 +364,7 @@ export default function App() {
                   </div>
                   <div>
                     <div className="text-sm text-gray-500 mb-1">Email Us</div>
-                    <a href="mailto:hello@altitudemarketinggroup.com" className="text-lg text-gray-900 hover:text-orange-600">hello@altitudemarketinggroup.com</a>
+                    <a href="mailto:andre.jc08@gmail.com" className="text-lg text-gray-900 hover:text-orange-600">andre.jc08@gmail.com</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -373,7 +373,7 @@ export default function App() {
                   </div>
                   <div>
                     <div className="text-sm text-gray-500 mb-1">Visit Us</div>
-                    <div className="text-lg text-gray-900">West Chester, PA 19380</div>
+                    <div className="text-lg text-gray-900">Exton, PA 19341</div>
                   </div>
                 </div>
               </div>
@@ -459,7 +459,7 @@ export default function App() {
                 </div>
               </div>
               <p className="text-gray-400 mb-4">
-                Altitude Marketing Group, LLC is a West Chester-based marketing operator for local service businesses. We handle the ongoing work—website, local SEO, Google Business Profile, content, and monthly execution—so you can focus on serving customers.
+                Altitude Marketing Group, LLC is an Exton-based marketing operator for local service businesses. We handle the ongoing work—website, local SEO, Google Business Profile, content, and monthly execution—so you can focus on serving customers.
               </p>
             </div>
             <div>
@@ -521,7 +521,7 @@ export default function App() {
           <p>We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
 
           <h3 className="font-semibold text-gray-900 text-base mt-6">3. Data Retention</h3>
-          <p>We retain your contact information only as long as necessary to fulfill the purpose for which it was collected or as required by law. If you wish to have your information removed from our records, contact us at hello@altitudemarketinggroup.com.</p>
+          <p>We retain your contact information only as long as necessary to fulfill the purpose for which it was collected or as required by law. If you wish to have your information removed from our records, contact us at andre.jc08@gmail.com.</p>
 
           <h3 className="font-semibold text-gray-900 text-base mt-6">4. Cookies</h3>
           <p>Our website may use cookies and similar technologies for basic site functionality and analytics. You may disable cookies in your browser settings; however, some features of the site may not function properly.</p>
@@ -530,7 +530,7 @@ export default function App() {
           <p>We may use third-party services (such as Google Analytics) that collect, monitor, and analyze web traffic. These services have their own privacy policies governing their use of your information.</p>
 
           <h3 className="font-semibold text-gray-900 text-base mt-6">6. Your Rights</h3>
-          <p>You have the right to request access to, correction of, or deletion of your personal information. Pennsylvania residents and California residents (under CCPA) may have additional rights. To exercise any of these rights, contact us at hello@altitudemarketinggroup.com.</p>
+          <p>You have the right to request access to, correction of, or deletion of your personal information. Pennsylvania residents and California residents (under CCPA) may have additional rights. To exercise any of these rights, contact us at andre.jc08@gmail.com.</p>
 
           <h3 className="font-semibold text-gray-900 text-base mt-6">7. Security</h3>
           <p>We implement reasonable administrative and technical safeguards to protect your information. However, no method of transmission over the internet is 100% secure.</p>
@@ -539,7 +539,7 @@ export default function App() {
           <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date.</p>
 
           <h3 className="font-semibold text-gray-900 text-base mt-6">9. Contact Us</h3>
-          <p>Altitude Marketing Group, LLC<br />West Chester, PA 19380<br />hello@altitudemarketinggroup.com</p>
+          <p>Altitude Marketing Group, LLC<br />Exton, PA 19341<br />andre.jc08@gmail.com</p>
         </PolicyModal>
       )}
 
@@ -581,7 +581,7 @@ export default function App() {
           <p>We may update these Terms from time to time. Continued use of our website or services after changes constitutes acceptance of the revised Terms.</p>
 
           <h3 className="font-semibold text-gray-900 text-base mt-6">11. Contact Us</h3>
-          <p>Altitude Marketing Group, LLC<br />West Chester, PA 19380<br />hello@altitudemarketinggroup.com</p>
+          <p>Altitude Marketing Group, LLC<br />Exton, PA 19341<br />andre.jc08@gmail.com</p>
         </PolicyModal>
       )}
 
